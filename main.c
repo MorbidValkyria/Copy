@@ -5,6 +5,7 @@
 int main(int argc, char const *argv[]) {
 	if (argc != 3) {
 		fprintf(stderr, "Usage: %s <source_file> <destination_file>\n",argv[0]);
+		return 1;
 	}
 	 const char *src = argv[1];
 	 const char *dst = argv[2];
@@ -15,7 +16,7 @@ int main(int argc, char const *argv[]) {
 	 	return 1;
 	 }
 
-	 FILE *f_dst = fopen(src, "wb"); // wb = write binary mode
+	FILE *f_dst = fopen(dst, "wb"); // wb = write binary mode
 
 	 if (!f_dst) {
 	 	perror("Error opening destination file");
@@ -49,6 +50,6 @@ int main(int argc, char const *argv[]) {
 	 	return 1;
 	 }
 
-	 printf("File copied succesfully!\n");
+	 printf("File copied successfully!\n");
 	 return 0;
 }
